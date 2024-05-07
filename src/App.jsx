@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import imageCompression from "browser-image-compression";
-import lamejs from "lamejs";
+import * as lamejs from "@breezystack/lamejs";
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -109,26 +109,41 @@ const App = () => {
   return (
     <div>
       <h1>Refactoskie</h1>
+      <hr />
+      {/* berikan kode untuk membuat garis pemisah horizontal */}
       <div>
         <h3>Image Compression</h3>
         <input type="file" accept="image/*" onChange={handleImageUpload} />
+        <br></br>
+        <br></br>
         <button onClick={handleImageResize}>Resize this Image</button>
         {processImage && (
           <div>
             <h4>Process Image</h4>
             <img src={URL.createObjectURL(processImage)} alt="Result" />
+
+            <br></br>
             <button onClick={handleDownloadImage}>Download this Image</button>
           </div>
         )}
       </div>
+      <hr />
+      {/* berikan kode untuk membuat garis pemisah horizontal */}
+
       <div>
+        <br></br>
+        <br></br>
+        <br></br>
         <h3>Audio Compression</h3>
         <input type="file" accept="audio/*" onChange={handleAudioUpload} />
+        <br></br>
+        <br></br>
         {selectedAudio && (
           <audio controls>
             <source src={URL.createObjectURL(selectedAudio)} type="audio/mp3" />
           </audio>
         )}
+        <br></br>
         <button onClick={handleAudioCompression}>Compress Audio</button>
         {processAudio && (
           <div>
@@ -139,6 +154,7 @@ const App = () => {
                 type="audio/mp3"
               />
             </audio>
+            <br></br>
             <button onClick={handleDownloadAudio}>Download Audio</button>
           </div>
         )}
